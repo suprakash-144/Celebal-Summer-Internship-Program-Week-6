@@ -22,9 +22,10 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const Product = await Product.create({
-      name: req.body.name,
-      PhoneNumber: req.body.number,
-      address: req.body.address,
+      Name: req.body.Name,
+      Quantity: req.body.Quantity,
+      Brand: req.body.Brand,
+      Price: req.body.Price,
     });
     await Product.save();
     res.status(201).send(Product);

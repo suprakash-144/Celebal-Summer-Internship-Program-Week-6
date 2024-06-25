@@ -6,8 +6,11 @@ const userSchema = new mongoose.Schema(
     PhoneNumber: { type: number, required: true },
     address: { type: string },
     usertype: {
-      type: string,
+      type: String,
+      default: "Normal",
+      enum: ["Normal", "Elite", "premimum"],
     },
+    purchased: [{ type: mongoose.Types.ObjectId, ref: "Product" }],
   },
   { timestamps: true }
 );
